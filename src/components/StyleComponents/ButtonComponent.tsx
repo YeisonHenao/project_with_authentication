@@ -20,14 +20,3 @@ export const ButtonGeneric = (props: ButtonGenericProps) => {
     </button>
   )
 }
-
-export const ButtonWithOutStyles = (props: ButtonWithOutStylesProps) => {
-  return(
-    <button
-      className={`${props.addicionalStyles}`}
-      onClick={props.OnClick}
-    >
-      {props.text}
-    </button>
-  )
-}
