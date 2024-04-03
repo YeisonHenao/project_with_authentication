@@ -1,5 +1,5 @@
 export const LoginPage = () => {
   return (
-      <div className="page">LoginPage</div>
+      <div className="text-center text-4xl font-bold">LoginPage</div>
   )
 }
