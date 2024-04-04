@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { LoginPage } from '../Pages/LoginPage';
+import { LoginPage } from '../Pages/LoginPage/LoginPage';
 
 export const PublicRoutes = () => {
     return (
