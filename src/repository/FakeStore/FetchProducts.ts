@@ -1,6 +1,6 @@
 import instance from '../../config/store.axios'
 
-export async function fetchProducts() {
+export default async function fetchProducts() {
   try {
     const response = await instance.get('/products');
     return response.data;
