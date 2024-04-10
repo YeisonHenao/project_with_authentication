@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { InputComponent } from "../../../components/StyleComponents/InputComponent";
+import { InputComponent } from '../../../components/StyleComponents/index'
+import LoginPageController from "../../../Controller/LoginPageController";
 
 export const LoginFormComponent: React.FC = () => {
+
+  const controller = new LoginPageController();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -9,8 +12,8 @@ export const LoginFormComponent: React.FC = () => {
   const [passwordError, setPasswordError] = useState("");
 
   const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    const info: boolean = controller.validateEmail(email);
+    if (!info) {
       setEmailError("Correo electrónico inválido");
     } else {
       setEmailError("");
@@ -23,7 +26,8 @@ export const LoginFormComponent: React.FC = () => {
   }
 
   const validatePassword = (password: string) => {
-    if (password.length < 8) {
+    const info: boolean = controller.validatePassword(password);
+    if (!info) {
       setPasswordError("La contraseña debe tener al menos 8 caracteres");
     } else {
       setPasswordError("");
@@ -45,6 +49,7 @@ export const LoginFormComponent: React.FC = () => {
       />
       <InputComponent
         label="Contraseña"
+        type="password"
         value={password}
         onChange={handlePasswordChange}
         errorMessage={passwordError}

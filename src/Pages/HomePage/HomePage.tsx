@@ -1,5 +1,4 @@
-import { ButtonGeneric } from "../../components/StyleComponents/ButtonComponent"
-import { ContainerComponent } from "../../components/StyleComponents/ContainerComponent"
+import { ButtonGeneric, ContainerComponent } from "../../components/StyleComponents/index"
 
 export const HomePage = () => {
   return (
