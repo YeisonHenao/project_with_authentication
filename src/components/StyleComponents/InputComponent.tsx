@@ -3,14 +3,16 @@ import { useState } from "react";
 interface InputProps {
   label: string;
   placeholder?: string;
+  type?: string;
   value: string;
   onChange: (value: string) => void;
   errorMessage?: string;
 }
 
-export const InputComponent: React.FC<InputProps> = ({
+const InputComponent: React.FC<InputProps> = ({
   label,
   placeholder,
+  type,
   value,
   onChange,
   errorMessage,
@@ -41,7 +43,7 @@ export const InputComponent: React.FC<InputProps> = ({
             errorMessage ? "border-red-500" : ""
           }`}
         id={label}
-        type="text"
+        type={type}
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -54,3 +56,5 @@ export const InputComponent: React.FC<InputProps> = ({
     </div>
   );
 };
+
+export default InputComponent;
