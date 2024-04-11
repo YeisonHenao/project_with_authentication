@@ -4,7 +4,7 @@ import { PublicRoutes } from "./PublicRoutes"
 
 type Status = 'checking' | 'authenticated' | 'no-authenticated'
 
-const status: Status = "authenticated";
+const status: Status = "no-authenticated";
 
 export const AppRouter = () => {
 
