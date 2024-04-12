@@ -1,37 +1,27 @@
+// #region Imports
 import { useState } from "react";
 import { InputComponent, ButtonGeneric } from '../../../components/StyleComponents/index'
 import LoginPageController from "../../../Controller/LoginPageController";
+//#endregion
 
 export const LoginFormComponent: React.FC = () => {
 
+  // #region Instances
   const controller = new LoginPageController();
 
   //Definición de estados del componente
-  const [email, setEmail] = useState('');
+  const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  /**
-   * Función que envia al controlador el correo para validar la información para decir si el campo es valido o no
-   * @param email String -> String ingresado en el input de email para validarse
-   */
-  const validateEmail = (email: string) => {
-    const info: boolean = controller.validateEmail(email);
-    if (!info) {
-      setEmailError("Correo electrónico inválido");
-    } else {
-      setEmailError("");
-    }
-  }
+  // #endregion
 
   /**
    * Función para validar los cambios de estado del input de correo para realizar validaciones del campo
    * @param email String -> Correo del usuario ingresado en el input
    */
   const handleEmailChange = (email: string) => {
-    setEmail(email);
-    validateEmail(email);
+    setUser(email);
   }
 
   /**
@@ -60,7 +50,7 @@ export const LoginFormComponent: React.FC = () => {
    * Función para iniciar sesión en la aplicación
    */
   const handleLogin = () => {
-    const info: boolean = controller.loginUser(email,password)
+    const info: boolean = controller.loginUser(user,password)
     if(!info){
       alert("No puedes acceder")
     } else {
@@ -71,10 +61,9 @@ export const LoginFormComponent: React.FC = () => {
   return (
     <div>
       <InputComponent
-        label="Correo electrónico"
-        value={email}
+        label="Usuario"
+        value={user}
         onChange={handleEmailChange}
-        errorMessage={emailError}
       />
       <InputComponent
         label="Contraseña"
